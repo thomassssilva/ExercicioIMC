@@ -11,19 +11,63 @@
 
 <body>
 
-  <section class="container">
-    <h1>Calcule seu IMC</h1>
-    <p>Utilize apenas numeros.</p>
-    <form action="/" id="formulario" method="POST" class="form">
-      <label for="peso" class="label">Peso (kg)</label>
-      <input type="text" id="peso" name="peso" class="input" placeholder="Ex.: 80">
-      <label for="altura" class="label">Altura (cm)</label>
-      <input type="text" id="altura" name="altura" class="input" placeholder="Ex.: 180">
-      <button type="submit" class="button">Enviar</button>
-    </form>
+  <div class="grid">
+    <div>
+      <table class="table">
+        <thead class="tableCabecalho">
+          <tr>
+            <td colspan="2">INTERPRETAÇÃO DO IMC</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tableIMCLinhaLegendas">
+            <td>IMC</td>
+            <td>Classificação</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Menor que 18,49</td>
+            <td>Abaixo do peso</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Entre 18,50 e 24,99</td>
+            <td>Normal</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Entre 25,00 e 29,99</td>
+            <td>Sobrepeso</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Entre 30,00 e 34,99</td>
+            <td>Obesidade Grau 1</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Entre 35,00 e 39,99</td>
+            <td>Obesidade Grau 2</td>
+          </tr>
+          <tr class="tableIMCLinhaInfos">
+            <td>Acima de 40,00</td>
+            <td>Obesidade Grau 3</td>
+          </tr>
 
-    <div id="resultado"></div>
-  </section>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <section class="container">
+        <h1>Calcule seu IMC</h1>
+        <p>Utilize apenas numeros.</p>
+        <form action="/" id="formulario" method="POST" class="form">
+          <label for="peso" class="label">Peso (kg)</label>
+          <input type="text" id="peso" name="peso" class="input formatPeso" placeholder="Ex.: 80">
+          <label for="altura" class="label">Altura (cm)</label>
+          <input type="text" id="altura" name="altura" class="input formatAltura" placeholder="Ex.: 180">
+          <button type="submit" class="button">Enviar</button>
+        </form>
+
+        <div id="resultado"></div>
+      </section>
+    </div>
+  </div>
 
   <script src="./assets/js/main.js"></script>
 </body>

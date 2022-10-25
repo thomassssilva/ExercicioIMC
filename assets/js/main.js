@@ -24,7 +24,7 @@ form.addEventListener('submit', function (e) { //2. Captu ra do envento submit
 
     const msg = `Seu IMC é ${imc} (${nivelImc})` // 8. E com isso, ira setar a mensagem configurada ao lado 
 
-    setResultado(msg, true); // 9. Preenchendo as informações que a função necessita
+    setResultado(msg, true, imc); // 9. Preenchendo as informações que a função necessita
 });
 
 function criaP () {//**Função somente para criar um paragrafo
@@ -32,7 +32,7 @@ function criaP () {//**Função somente para criar um paragrafo
     return p;//**Função somente para criar um paragrafo
 }
 
-function setResultado (msg, isValid) { //9.1 Função para adicionar conteudo no paragrafo adicionado, onde msg é a mensagem exibida
+function setResultado (msg, isValid, imc) { //9.1 Função para adicionar conteudo no paragrafo adicionado, onde msg é a mensagem exibida
     const resultado = document.querySelector('#resultado');//9.2 selecionando o id resultado no HTML
     resultado.innerHTML = ''; //9.3 Zerando o conteudo anterior
 
@@ -40,7 +40,19 @@ function setResultado (msg, isValid) { //9.1 Função para adicionar conteudo no
     const p = criaP(); //9.4 Executando a função que cria Paragrafo
     
     if (isValid) {//9.5 Se isValid for incluido como true 
-        p.classList.add('paragrafo-resultado');//Adiciona a Classe paragrafo-resultado (CSS Configurado como fundo verde)
+        if (imc >= 39.9) {
+            p.classList.add('faixaAlerta') //Obesidade 3
+        } else if (imc >= 34.9) {
+            p.classList.add('faixaAlerta') //Obesidade 2
+        } else if (imc >= 29.9) {
+            p.classList.add('faixaAlerta') //Obesidade 1
+        } else if (imc >= 24.9) {
+            p.classList.add('faixaMedia') //Sobrepeso
+        } else if (imc >= 18.5) {
+            p.classList.add('faixaNormal') //Peso Normal
+        } else {
+            p.classList.add('faixaMedia') //Abaixo do Peso
+        }
     } else {//Se isValid for incluido como false
         p.classList.add('bad') //Adiciona a Classe bad (CSS Configurado como fundo vermelgo)
     }

@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
 :root {
   --primary-color: rgb(82, 82, 82);
   --primary-color-darker: rgb(31, 59, 65);
+  --faixaNormal: rgb(0, 255, 98);
+  --faixaMedia: rgb(255, 210, 10);
+  --faixaAlerta: rgb(255, 7, 48);
+
 }
 
 * {
   box-sizing: border-box;
-  outline:  0;
+  outline: 0;
 }
 
 body {
@@ -18,15 +23,48 @@ body {
   line-height: 1.5em;
 }
 
+.grid {
+  display: grid;
+  align-items: center;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    'legend content';
+}
+
+.grid div:nth-child(1) {
+  display: flex;
+  grid-area: legend;
+  padding-left: 25%;
+}
+
+.grid div:nth-child(2) {
+  display: flex;
+  grid-area: content;
+  padding-right: 25%;
+  ;
+}
+
 .container {
-  max-width: 640px;
+  width: 550px;
+  height: 505px;
   margin: 50px auto;
   background: #fff;
   padding: 20px;
   border-radius: 10px;
 }
 
-.input, .label, .button {
+.table {
+  width: 550px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.input,
+.label,
+.button {
   display: block;
   width: 100%;
   margin-bottom: 10px;
@@ -51,17 +89,56 @@ body {
   height: 50px;
   cursor: pointer;
   margin-top: 30px;
+  border-radius: 10px;
 }
 
 .button:hover {
   background: var(--primary-color-darker);
 }
 
-.paragrafo-resultado, .bad {
-  background: rgb(0, 255, 98);
+.paragrafo-resultado,
+.bad,
+.faixaAlerta,
+.faixaMedia,
+.faixaNormal {
   padding: 10px 20px;
 }
 
 .bad {
-  background: rgb(255, 73, 73);
+  background: var(--faixaAlerta);
+}
+
+::placeholder {
+  font-size: 18px;
+}
+
+.faixaNormal {
+  background: var(--faixaNormal);
+  border-radius: 10px;
+}
+
+.faixaMedia {
+  background: var(--faixaMedia);
+  border-radius: 10px;
+}
+
+.faixaAlerta {
+  background: var(--faixaAlerta);
+  border-radius: 10px;
+}
+
+.tableCabecalho {
+  text-align: center;
+  font-weight: bold;
+  color: var(--primary-color-darker);
+}
+
+.tableIMCLinhaLegendas {
+  text-align: left;
+  font-weight: bold;
+  color: rgb(0, 126, 199);
+}
+
+.tableIMCLinhaInfos {
+  font-size: 15px;
 }
