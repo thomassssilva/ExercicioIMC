@@ -1,7 +1,7 @@
 //1. Obtendo o elemento form de HTML
 const form = document.querySelector('.form');
 
-form.addEventListener('submit', function (e) { //2. Captu ra do envento submit
+form.addEventListener('submit', function (e) { //2. Captura do envento submit
     e.preventDefault(); //Prevenindo a ação padrão do botão
     const inputPeso = e.target.querySelector('#peso'); //3. Captura dos dados dos inputs
     const inputAltura = e.target.querySelector('#altura'); //3. Captura dos dados dos inputs
